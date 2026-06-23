@@ -1,6 +1,6 @@
 # 📊 ASN Data Skill
 
-> Repositori belajar pengolahan data untuk Aparatur Sipil Negara — Excel & Python.
+> Repositori belajar pengolahan data untuk Aparatur Sipil Negara — Excel, Python, & Aplikasi Web.
 
 ---
 
@@ -10,16 +10,18 @@
                      ASN DATA SKILL
                          │
           ┌──────────────┴──────────────┐
-          │                             │
-     📗 TRACK EXCEL               🐍 TRACK PYTHON
-          │                             │
-    ┌─────┼─────┐              ┌────────┼────────┐
-    │     │     │              │        │        │
-  Level  Level  Level      01-      02-      03-
-    1      2      3       Dasar   Cleansing   Excel
-                           │        │        │
-                       04-Dasar   05-Data    ...
-                      (lanjutan)  Validation
+          │              │              │
+     📗 TRACK EXCEL  🐍 TRACK PYTHON  🌐 WEB APP
+          │              │              │
+    ┌─────┼─────┐  ┌─────┼─────┐    07-
+  Level  Level  Level  01-02-03-  Aplikasi
+    1      2      3  DasarCleans. Streamlit
+                          04-05-      │
+                          Valid.Rep.  ▼
+                             │     Dashboard
+                          06-      Interaktif
+                        Otomasi
+                        Word
 ```
 
 ---
@@ -45,7 +47,7 @@
 |---|-------|----------------------|
 | 5 | **VLOOKUP & XLOOKUP** — Cari data antar tabel | [Belajar VLOOKUP vs HLOOKUP vs XLOOKUP](https://www.youtube.com/watch?v=UIfrgw4wD9k) \| [XLOOKUP (TikTok)](https://www.tiktok.com/@era_dotcom/video/7560170046400548108) |
 | 6 | **Pivot Table** — Meringkas ribuan baris data | [Belajar Pivot Table Pemula → Mahir](https://www.youtube.com/watch?v=KWEr_L0LqWQ) |
-| 7 | **Date & Time Functions** — DATEDIF, NETWORKDAYS, EOMONTH | [Rumus Tanggal Excel Lengkap](https://www.youtube.com/watch?v=OYhDTWZn8pQ) |
+| 7 | **Date & Time Functions** — DATEDIF, NETWORKDAYS, EOMONonth | [Rumus Tanggal Excel Lengkap](https://www.youtube.com/watch?v=OYhDTWZn8pQ) |
 | 8 | **Data Validation** — Dropdown list, input validation | [Data Validation di Excel](https://www.youtube.com/watch?v=jk4jVKl0D14) |
 
 ### Level 3: Advanced — Analisis & Otomasi
@@ -67,28 +69,31 @@
 
 | No | Folder | Topik | Deskripsi |
 |----|--------|-------|-----------|
-| 01 | [`01-python-dasar/`](./01-python-dasar/) | **Python Dasar** | Pengenalan Python: variabel, kondisi, loop, list/dict — nol koding sampai bisa baca data |
-| 02 | [`02-data-cleansing/`](./02-data-cleansing/) | **Data Cleansing** | Bersihkan data mentah: hapus duplikat, isi data kosong, standarisasi format, konversi tanggal |
-| 03 | [`03-otomasi-excel/`](./03-otomasi-excel/) | **Otomasi Excel** | Baca, tulis, merge, dan format file Excel otomatis — tanpa buka Excel satu per satu |
-| 04 | [`04-data-validation/`](./04-data-validation/) | **Validasi Data** | Cek otomatis: NIP valid, range gaji wajar, inkonsistensi data, laporan validasi |
-| 05 | [`05-report-generator/`](./05-report-generator/) | **Report Generator** | Generate laporan: rekap pegawai, analisis anggaran, prediksi pensiun |
+| 01 | [`01-python-dasar/`](./01-python-dasar/) | **Python Dasar** | Pengenalan Python: variabel, kondisi, loop, list/dict |
+| 02 | [`02-data-cleansing/`](./02-data-cleansing/) | **Data Cleansing** | Bersihkan data mentah: hapus duplikat, isi data kosong, standarisasi |
+| 03 | [`03-otomasi-excel/`](./03-otomasi-excel/) | **Otomasi Excel** | Baca, tulis, merge, format file Excel otomatis |
+| 04 | [`04-data-validation/`](./04-data-validation/) | **Validasi Data** | Cek NIP, range gaji, inkonsistensi, laporan validasi |
+| 05 | [`05-report-generator/`](./05-report-generator/) | **Report Generator** | Generate rekap pegawai, analisis anggaran, prediksi pensiun |
+| 06 | [`06-otomasi-word/`](./06-otomasi-word/) | **Otomasi Surat Dinas** | Auto-generate .docx (surat dinas, undangan, SK) dari data Excel |
+| 07 | [`07-aplikasi-web/`](./07-aplikasi-web/) | **Dashboard Web (Streamlit)** | Aplikasi visual untuk cleansing, merge, dan visualisasi data |
 
 ### Cara Mulai Track Python
 
 ```bash
-# 1. Install Python 3 (kalau belum)
-#    Download dari python.org
+# 1. Install library yang dibutuhkan
+pip install pandas openpyxl python-docx streamlit
 
-# 2. Install library yang dibutuhkan
-pip install pandas openpyxl
-
-# 3. Clone repo ini
+# 2. Clone repo ini
 git clone git@github.com:lemusoldier/asn-data-skill.git
 cd asn-data-skill
 
-# 4. Mulai dari folder 01-python-dasar/
+# 3. Mulai dari folder 01-python-dasar/
 cd 01-python-dasar
 python 01_hello.py
+
+# 4. Jalankan Dashboard Web
+cd ../07-aplikasi-web
+streamlit run app.py
 ```
 
 ---
@@ -102,6 +107,8 @@ python 01_hello.py
 | Cek NIP bermasalah sebelum upload ke BKN | Validasi NIP | `04-data-validation/01_cek_nip_valid.py` |
 | Laporan bulanan rekap pegawai | Generate report | `05-report-generator/01_rekap_pegawai.py` |
 | Filter pegawai gol IV → export | Filter + export | `03-otomasi-excel/05_filter_export.py` |
+| Buat undangan rapat massal (50 nama) | Generate Word massal | `06-otomasi-word/02_bulk_undangan.py` |
+| Rekan kerja butuh tool cleansing tanpa coding | Dashboard web | `07-aplikasi-web/app.py` |
 
 ---
 
